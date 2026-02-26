@@ -34,222 +34,143 @@
         <section class="container py-5">
             <div class="row mb-5 mt-4">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-black text-white mb-3">
-                        <span class="text-gradient">CYCLING</span> INTENSO
+                    <h1 class="display-3 fw-black text-white mb-3">
+                        Nuestras <span class="text-gradient">Clases</span>
                     </h1>
-                    <p class="text-white-50 fs-5 mb-4">Lunes 18:00 - 18:45 | Instructor: Carlos Martínez</p>
-                    <div class="d-flex justify-content-center gap-4 flex-wrap">
-                        <div class="text-center">
-                            <i class="bi bi-clock-fill text-gradient fs-3 d-block mb-2"></i>
-                            <span class="text-white-50 small">45 minutos</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-fire text-gradient fs-3 d-block mb-2"></i>
-                            <span class="text-white-50 small">Alta intensidad</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-people-fill text-gradient fs-3 d-block mb-2"></i>
-                            <span class="text-white-50 small">12/20 plazas</span>
-                        </div>
-                    </div>
+                    <p class="text-white-50 fs-5">Descubre la clase perfecta para alcanzar tus objetivos</p>
                 </div>
             </div>
 
-            <div class="row mb-5">
-                <div class="col-lg-10 mx-auto">
-                    <div class="bg-dark-card rounded-4 p-4 p-lg-5 border-white-5">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="text-white fw-bold mb-0">
-                                <i class="bi bi-bicycle text-gradient me-2"></i>SELECCIONA TU BICI
-                            </h4>
-                            <div class="d-flex gap-3 align-items-center flex-wrap">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div style="width: 20px; height: 20px; background: #28a745; border-radius: 50%;"></div>
-                                    <span class="text-white-50 small">Disponible</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div style="width: 20px; height: 20px; background: #dc3545; border-radius: 50%;"></div>
-                                    <span class="text-white-50 small">Ocupada</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div style="width: 20px; height: 20px; background: var(--brand-orange); border-radius: 50%;"></div>
-                                    <span class="text-white-50 small">Tu selección</span>
-                                </div>
-                            </div>
+            <!-- Grid de clases -->
+            <div class="row g-4 mb-5">
+                <!-- Cycling -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card rounded-4 overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=800&auto=format&fit=crop" 
+                                class="w-100 h-100 object-fit-cover img-zoom" alt="Cycling">
                         </div>
-                        
-                        <div class="bg-dark p-4 rounded-3 mb-4">
-                            <div class="text-center mb-3">
-                                <span class="text-white-50 small fw-bold">
-                                    <i class="bi bi-display me-2"></i>PANTALLA DEL INSTRUCTOR
-                                </span>
+                        <div class="card-body-dark p-4">
+                            <h4 class="fw-bold text-gradient mb-2">CYCLING INTENSO</h4>
+                            <p class="text-white-50 mb-3 small">45 minutos de cardio de alta intensidad sobre bicicleta estática. Quema calorías y mejora tu resistencia cardiovascular.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3">
+                                    <span class="text-white-50 small"><i class="bi bi-clock-fill me-1"></i>45 min</span>
+                                    <span class="text-white-50 small"><i class="bi bi-fire me-1"></i>Alta</span>
+                                </div>
+                                <span class="badge bg-success">Plazas disponibles</span>
                             </div>
-                            <div class="row g-3 justify-content-center" id="bikeGrid">
-                                <div class="col-auto"><div class="bike-slot available" data-bike="1">1</div></div>
-                                <div class="col-auto"><div class="bike-slot occupied" data-bike="2">2</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="3">3</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="4">4</div></div>
-                                <div class="col-auto"><div class="bike-slot occupied" data-bike="5">5</div></div>
-                                
-                                <div class="w-100"></div>
-                                
-                                <div class="col-auto"><div class="bike-slot available" data-bike="6">6</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="7">7</div></div>
-                                <div class="col-auto"><div class="bike-slot occupied" data-bike="8">8</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="9">9</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="10">10</div></div>
-                                
-                                <div class="w-100"></div>
-                                
-                                <div class="col-auto"><div class="bike-slot occupied" data-bike="11">11</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="12">12</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="13">13</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="14">14</div></div>
-                                <div class="col-auto"><div class="bike-slot occupied" data-bike="15">15</div></div>
-                                
-                                <div class="w-100"></div>
-                                
-                                <div class="col-auto"><div class="bike-slot available" data-bike="16">16</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="17">17</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="18">18</div></div>
-                                <div class="col-auto"><div class="bike-slot occupied" data-bike="19">19</div></div>
-                                <div class="col-auto"><div class="bike-slot available" data-bike="20">20</div></div>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center">
-                            <div id="selectedBikeInfo" class="mb-3 text-white-50">
-                                <i class="bi bi-info-circle me-2"></i>Selecciona una bici disponible para continuar
-                            </div>
-                            <button class="btn btn-brand px-5 py-3" id="confirmBtn" disabled>
-                                <i class="bi bi-check-circle me-2"></i>CONFIRMAR RESERVA
-                            </button>
+                            <a href="class-detail.html" class="btn btn-brand w-100">Ver detalles y reservar</a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="py-5 border-top border-white-5">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="text-gradient fw-bold mb-0">
-                                <i class="bi bi-person-badge me-2"></i>PANEL INSTRUCTOR
-                            </h4>
-                            <span class="badge bg-success px-3 py-2">12 Reservas Activas</span>
+                <!-- Yoga -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card rounded-4 overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop" 
+                                class="w-100 h-100 object-fit-cover img-zoom" alt="Yoga">
                         </div>
-                        
-                        <div class="bg-dark-card rounded-4 overflow-hidden">
-                            <div class="table-responsive">
-                                <table class="table table-dark table-hover mb-0">
-                                    <thead class="bg-darker">
-                                        <tr>
-                                            <th class="p-4 fw-bold">
-                                                <i class="bi bi-person-circle me-2"></i>Usuario
-                                            </th>
-                                            <th class="p-4 fw-bold">
-                                                <i class="bi bi-bicycle me-2"></i>Bici
-                                            </th>
-                                            <th class="p-4 fw-bold">
-                                                <i class="bi bi-clock me-2"></i>Hora Reserva
-                                            </th>
-                                            <th class="text-end p-4 fw-bold">Acción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="p-4">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="bg-gradient-custom rounded-circle" style="width: 35px; height: 35px; background: linear-gradient(135deg, var(--brand-orange), var(--brand-red));"></div>
-                                                    <span>Juan García</span>
-                                                </div>
-                                            </td>
-                                            <td class="p-4"><span class="badge bg-secondary">#2</span></td>
-                                            <td class="p-4 text-white-50">14:30</td>
-                                            <td class="text-end p-4">
-                                                <button class="btn btn-sm btn-outline-danger">
-                                                    <i class="bi bi-x-circle me-1"></i>Retirar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="bg-gradient-custom rounded-circle" style="width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-                                                    <span>María López</span>
-                                                </div>
-                                            </td>
-                                            <td class="p-4"><span class="badge bg-secondary">#5</span></td>
-                                            <td class="p-4 text-white-50">14:45</td>
-                                            <td class="text-end p-4">
-                                                <button class="btn btn-sm btn-outline-danger">
-                                                    <i class="bi bi-x-circle me-1"></i>Retirar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="bg-gradient-custom rounded-circle" style="width: 35px; height: 35px; background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-                                                    <span>Carlos Ruiz</span>
-                                                </div>
-                                            </td>
-                                            <td class="p-4"><span class="badge bg-secondary">#8</span></td>
-                                            <td class="p-4 text-white-50">15:00</td>
-                                            <td class="text-end p-4">
-                                                <button class="btn btn-sm btn-outline-danger">
-                                                    <i class="bi bi-x-circle me-1"></i>Retirar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="bg-gradient-custom rounded-circle" style="width: 35px; height: 35px; background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
-                                                    <span>Ana Martínez</span>
-                                                </div>
-                                            </td>
-                                            <td class="p-4"><span class="badge bg-secondary">#11</span></td>
-                                            <td class="p-4 text-white-50">15:15</td>
-                                            <td class="text-end p-4">
-                                                <button class="btn btn-sm btn-outline-danger">
-                                                    <i class="bi bi-x-circle me-1"></i>Retirar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="bg-gradient-custom rounded-circle" style="width: 35px; height: 35px; background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
-                                                    <span>Pedro Sánchez</span>
-                                                </div>
-                                            </td>
-                                            <td class="p-4"><span class="badge bg-secondary">#15</span></td>
-                                            <td class="p-4 text-white-50">15:30</td>
-                                            <td class="text-end p-4">
-                                                <button class="btn btn-sm btn-outline-danger">
-                                                    <i class="bi bi-x-circle me-1"></i>Retirar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="bg-gradient-custom rounded-circle" style="width: 35px; height: 35px; background: linear-gradient(135deg, #fa709a, #fee140);"></div>
-                                                    <span>Laura Fernández</span>
-                                                </div>
-                                            </td>
-                                            <td class="p-4"><span class="badge bg-secondary">#19</span></td>
-                                            <td class="p-4 text-white-50">15:45</td>
-                                            <td class="text-end p-4">
-                                                <button class="btn btn-sm btn-outline-danger">
-                                                    <i class="bi bi-x-circle me-1"></i>Retirar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="card-body-dark p-4">
+                            <h4 class="fw-bold text-gradient mb-2">YOGA FLOW</h4>
+                            <p class="text-white-50 mb-3 small">Sesión de yoga dinámico para mejorar flexibilidad, equilibrio y conexión mente-cuerpo. Todos los niveles bienvenidos.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3">
+                                    <span class="text-white-50 small"><i class="bi bi-clock-fill me-1"></i>60 min</span>
+                                    <span class="text-white-50 small"><i class="bi bi-heart me-1"></i>Media</span>
+                                </div>
+                                <span class="badge bg-success">Plazas disponibles</span>
                             </div>
+                            <a href="class-detail.html" class="btn btn-brand w-100">Ver detalles y reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CrossFit -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card rounded-4 overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop" 
+                                class="w-100 h-100 object-fit-cover img-zoom" alt="CrossFit">
+                        </div>
+                        <div class="card-body-dark p-4">
+                            <h4 class="fw-bold text-gradient mb-2">CROSSFIT WOD</h4>
+                            <p class="text-white-50 mb-3 small">Entrenamiento funcional de alta intensidad. Combina levantamiento de pesas, gimnasia y acondicionamiento metabólico.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3">
+                                    <span class="text-white-50 small"><i class="bi bi-clock-fill me-1"></i>50 min</span>
+                                    <span class="text-white-50 small"><i class="bi bi-fire me-1"></i>Alta</span>
+                                </div>
+                                <span class="badge bg-warning text-dark">Pocas plazas</span>
+                            </div>
+                            <a href="class-detail.html" class="btn btn-brand w-100">Ver detalles y reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boxing -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card rounded-4 overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=800&auto=format&fit=crop" 
+                                class="w-100 h-100 object-fit-cover img-zoom" alt="Boxing">
+                        </div>
+                        <div class="card-body-dark p-4">
+                            <h4 class="fw-bold text-gradient mb-2">BOXING CARDIO</h4>
+                            <p class="text-white-50 mb-3 small">Entrenamiento de boxeo sin contacto enfocado en técnica y cardio. Ideal para liberar estrés y tonificar el cuerpo.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3">
+                                    <span class="text-white-50 small"><i class="bi bi-clock-fill me-1"></i>45 min</span>
+                                    <span class="text-white-50 small"><i class="bi bi-fire me-1"></i>Alta</span>
+                                </div>
+                                <span class="badge bg-success">Plazas disponibles</span>
+                            </div>
+                            <a href="class-detail.html" class="btn btn-brand w-100">Ver detalles y reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilates -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card rounded-4 overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop" 
+                                class="w-100 h-100 object-fit-cover img-zoom" alt="Pilates">
+                        </div>
+                        <div class="card-body-dark p-4">
+                            <h4 class="fw-bold text-gradient mb-2">PILATES MAT</h4>
+                            <p class="text-white-50 mb-3 small">Fortalecimiento del core y mejora de la postura mediante ejercicios controlados. Perfecto para todos los niveles.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3">
+                                    <span class="text-white-50 small"><i class="bi bi-clock-fill me-1"></i>55 min</span>
+                                    <span class="text-white-50 small"><i class="bi bi-heart me-1"></i>Baja</span>
+                                </div>
+                                <span class="badge bg-success">Plazas disponibles</span>
+                            </div>
+                            <a href="class-detail.html" class="btn btn-brand w-100">Ver detalles y reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HIIT -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card rounded-4 overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 280px;">
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop" 
+                                class="w-100 h-100 object-fit-cover img-zoom" alt="HIIT">
+                        </div>
+                        <div class="card-body-dark p-4">
+                            <h4 class="fw-bold text-gradient mb-2">HIIT EXTREMO</h4>
+                            <p class="text-white-50 mb-3 small">Intervalos de alta intensidad para quemar grasa y mejorar resistencia. Maximiza resultados en tiempo mínimo.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3">
+                                    <span class="text-white-50 small"><i class="bi bi-clock-fill me-1"></i>30 min</span>
+                                    <span class="text-white-50 small"><i class="bi bi-fire me-1"></i>Muy Alta</span>
+                                </div>
+                                <span class="badge bg-danger">Completo</span>
+                            </div>
+                            <a href="class-detail.html" class="btn btn-outline-light w-100" disabled>Sin plazas</a>
                         </div>
                     </div>
                 </div>
@@ -262,7 +183,6 @@
                     </a>
                 </div>
             </div>
-            
         </section>
     </main>
 
