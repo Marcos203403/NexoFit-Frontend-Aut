@@ -61,6 +61,13 @@ class ApiClient {
     return this.request("/auth/profile");
   }
 
+  async updateProfile(profileData) {
+    return this.request("/auth/profile", {
+      method: "PUT",
+      body: JSON.stringify(profileData),
+    });
+  }
+
   // Classes endpoints
   async getClasses(filters) {
     const params = new URLSearchParams();
