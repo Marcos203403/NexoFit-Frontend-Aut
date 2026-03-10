@@ -134,14 +134,24 @@ class ApiClient {
   async createCategory(categoryData) {
     return this.request("/categories", {
       method: "POST",
-      body: JSON.stringify(categoryData),
+      body: JSON.stringify({
+        title: categoryData.title,
+        slug: categoryData.slug,
+        description: categoryData.description,
+        price: categoryData.price,
+      }),
     });
   }
 
   async updateCategory(id, categoryData) {
     return this.request(`/categories/${id}`, {
       method: "PUT",
-      body: JSON.stringify(categoryData),
+      body: JSON.stringify({
+        title: categoryData.title,
+        slug: categoryData.slug,
+        description: categoryData.description,
+        price: categoryData.price,
+      }),
     });
   }
 
@@ -193,6 +203,45 @@ class ApiClient {
 
   async deleteModality(id) {
     return this.request(`/modalities/${id}`, {
+      method: "DELETE",
+    });
+  }
+
+  // Brands endpoints
+  async getBrands() {
+    return this.request("/brands");
+  }
+
+  async getBrand(id) {
+    return this.request(`/brands/${id}`);
+  }
+
+  async createBrand(brandData) {
+    return this.request("/brands", {
+      method: "POST",
+      body: JSON.stringify({
+        title: brandData.title,
+        description: brandData.description,
+        image_url: brandData.imageUrl,
+        price: brandData.price,
+      }),
+    });
+  }
+
+  async updateBrand(id, brandData) {
+    return this.request(`/brands/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        title: brandData.title,
+        description: brandData.description,
+        image_url: brandData.imageUrl,
+        price: brandData.price,
+      }),
+    });
+  }
+
+  async deleteBrand(id) {
+    return this.request(`/brands/${id}`, {
       method: "DELETE",
     });
   }
