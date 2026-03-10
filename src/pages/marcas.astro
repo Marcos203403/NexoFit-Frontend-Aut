@@ -68,7 +68,14 @@ import Layout from "../layouts/Layout.astro";
 			}
 
 			// Render brands
-			container.innerHTML = response.data.map((brand) => `
+			const examplePrices = [19.99, 29.99, 24.99, 34.99, 27.99]; // Precios de ejemplo
+			container.innerHTML = response.data.map((brand, index) => {
+				// Usar precio del backend o uno de ejemplo
+				const displayPrice = brand.price !== undefined && brand.price !== null 
+					? Number(brand.price) 
+					: examplePrices[index % examplePrices.length];
+
+				return `
 				<article class="brand-card group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/10 transition-all transform hover:-translate-y-1">
 					<!-- Brand Image -->
 					<div class="brand-image relative h-48 bg-zinc-800 overflow-hidden">
@@ -103,16 +110,14 @@ import Layout from "../layouts/Layout.astro";
 
 					<!-- Brand Price -->
 					<div class="brand-price px-6 pb-6">
-						${brand.price !== undefined && brand.price !== null 
-							? `<div class="flex items-center justify-between bg-orange-500/10 border border-orange-500/30 rounded-lg p-3">
-									<span class="text-zinc-400 text-sm font-semibold">Precio</span>
-									<span class="text-orange-500 text-xl font-bold">${Number(brand.price).toFixed(2)} €</span>
-							   </div>`
-							: ''
-						}
+						<div class="flex items-center justify-between bg-orange-500/10 border border-orange-500/30 rounded-lg p-3">
+							<span class="text-zinc-400 text-sm font-semibold">Precio</span>
+							<span class="text-orange-500 text-xl font-bold">${displayPrice.toFixed(2)} €</span>
+						</div>
 					</div>
 				</article>
-			`).join('');
+				`;
+			}).join('');
 
 			container.classList.remove('hidden');
 

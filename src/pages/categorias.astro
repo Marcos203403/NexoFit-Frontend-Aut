@@ -68,10 +68,16 @@ import Layout from "../layouts/Layout.astro";
 			}
 
 			// Render categories
-			container.innerHTML = response.data.map((category) => {
+			const examplePrices = [29.99, 39.99, 24.99, 49.99, 34.99]; // Precios de ejemplo
+			container.innerHTML = response.data.map((category, index) => {
 				if (!category.modalities || category.modalities.length === 0) {
 					return ''; // Skip categories without modalities
 				}
+
+				// Usar precio del backend o uno de ejemplo
+				const displayPrice = category.price !== undefined && category.price !== null 
+					? Number(category.price) 
+					: examplePrices[index % examplePrices.length];
 
 				return `
 					<section class="space-y-6">
@@ -79,7 +85,7 @@ import Layout from "../layouts/Layout.astro";
 						<div class="border-b border-zinc-800 pb-4">
 							<div class="flex items-center justify-between mb-2">
 								<h2 class="text-3xl font-bold text-white">${category.title}</h2>
-								${category.price !== undefined && category.price !== null ? `<span class="text-2xl font-bold text-orange-500">${Number(category.price).toFixed(2)} €</span>` : ''}
+								<span class="text-2xl font-bold text-orange-500">${displayPrice.toFixed(2)} €</span>
 							</div>
 							<p class="text-zinc-400 text-lg">${category.description || ''}</p>
 						</div>
