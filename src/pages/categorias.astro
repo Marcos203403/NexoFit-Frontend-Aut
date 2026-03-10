@@ -77,7 +77,10 @@ import Layout from "../layouts/Layout.astro";
 					<section class="space-y-6">
 						<!-- Category Header -->
 						<div class="border-b border-zinc-800 pb-4">
-							<h2 class="text-3xl font-bold text-white mb-2">${category.title}</h2>
+							<div class="flex items-center justify-between mb-2">
+								<h2 class="text-3xl font-bold text-white">${category.title}</h2>
+								${category.price !== undefined && category.price !== null ? `<span class="text-2xl font-bold text-orange-500">${Number(category.price).toFixed(2)} €</span>` : ''}
+							</div>
 							<p class="text-zinc-400 text-lg">${category.description || ''}</p>
 						</div>
 

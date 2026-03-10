@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Marcas - NexoFit">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+		<!-- Header -->
+		<div class="mb-12">
+			<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+				Nuestras <span class="gradient-text">Marcas</span>
+			</h1>
+			<p class="text-zinc-400 text-lg">Descubre todas las marcas asociadas con NexoFit</p>
+		</div>
+
+		<!-- Loading State -->
+		<div id="loading" class="flex items-center justify-center py-24">
+			<svg class="animate-spin h-12 w-12 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+				<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+				<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+			</svg>
+		</div>
+
+		<!-- Error State -->
+		<div id="error" class="hidden bg-red-500/10 border border-red-500/50 text-red-400 px-6 py-4 rounded-xl mb-8">
+			<p class="font-semibold mb-1">Error al cargar las marcas</p>
+			<p id="error-message"></p>
+		</div>
+
+		<!-- Brands Container -->
+		<div id="brands-container" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			<!-- Brands will be inserted here -->
+		</div>
+
+		<!-- Empty State -->
+		<div id="empty" class="hidden bg-zinc-900 border border-zinc-800 rounded-xl p-12 text-center">
+			<svg class="w-16 h-16 text-zinc-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+			</svg>
+			<h3 class="text-xl font-semibold text-white mb-2">No hay marcas disponibles</h3>
+			<p class="text-zinc-400">Las marcas aparecerán aquí una vez estén disponibles</p>
+		</div>
+	</div>
+</Layout>
+
+<script>
+	// @ts-nocheck
+	import { api } from '../lib/api';
+
+	async function loadBrands() {
+		const loading = document.getElementById('loading');
+		const error = document.getElementById('error');
+		const errorMessage = document.getElementById('error-message');
+		const container = document.getElementById('brands-container');
+		const empty = document.getElementById('empty');
+
+		try {
+			const response = await api.getBrands();
+			
+			loading.classList.add('hidden');
+
+			if (!response.success) {
+				throw new Error(response.error || 'Error al cargar las marcas');
+			}
+
+			if (!response.data || response.data.length === 0) {
+				empty.classList.remove('hidden');
+				return;
+			}
+
+			// Render brands
+			container.innerHTML = response.data.map((brand) => `
+				<article class="brand-card group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/10 transition-all transform hover:-translate-y-1">
+					<!-- Brand Image -->
+					<div class="brand-image relative h-48 bg-zinc-800 overflow-hidden">
+						${brand.image_url 
+							? `<img 
+									src="${brand.image_url}" 
+									alt="${brand.title}" 
+									class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+								/>`
+							: `<div class="w-full h-full flex items-center justify-center bg-zinc-800">
+									<svg class="w-16 h-16 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+									</svg>
+								</div>`
+						}
+						<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+					</div>
+
+					<!-- Brand Name -->
+					<div class="brand-name p-6">
+						<h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-500 transition-colors">
+							${brand.title}
+						</h3>
+					</div>
+
+					<!-- Brand Description -->
+					<div class="brand-description px-6 pb-6">
+						<p class="text-zinc-400 text-sm line-clamp-3">
+							${brand.description || 'Descubre más sobre esta marca'}
+						</p>
+					</div>
+
+					<!-- Brand Price -->
+					<div class="brand-price px-6 pb-6">
+						${brand.price !== undefined && brand.price !== null 
+							? `<div class="flex items-center justify-between bg-orange-500/10 border border-orange-500/30 rounded-lg p-3">
+									<span class="text-zinc-400 text-sm font-semibold">Precio</span>
+									<span class="text-orange-500 text-xl font-bold">${Number(brand.price).toFixed(2)} €</span>
+							   </div>`
+							: ''
+						}
+					</div>
+				</article>
+			`).join('');
+
+			container.classList.remove('hidden');
+
+		} catch (err) {
+			loading.classList.add('hidden');
+			error.classList.remove('hidden');
+			errorMessage.textContent = err.message || 'Error de conexión con el servidor';
+			console.error('Error loading brands:', err);
+		}
+	}
+
+	// Load brands on page load
+	loadBrands();
+</script>
+
+<style>
+	.line-clamp-3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	/* Orden HTML original: imagen, nombre, descripción, price */
+	/* Nuevo orden visual CSS: descripción, nombre, price, imagen */
+	.brand-card {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* Ordenamiento visual sin cambiar HTML */
+	.brand-description {
+		order: 1; /* Descripción primero */
+	}
+
+	.brand-name {
+		order: 2; /* Nombre segundo */
+	}
+
+	.brand-price {
+		order: 3; /* Precio tercero */
+	}
+
+	.brand-image {
+		order: 4; /* Imagen al final */
+	}
+</style>
